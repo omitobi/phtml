@@ -1,0 +1,23 @@
+{
+  "name": "omitobisam/phtml",
+  "description": "PHP HTML",
+  "license": "MIT",
+  "keywords": ["phtml"],
+  "authors": [
+    {
+      "name": "Oluwatobi Samuel Omisakin",
+      "email": "omisakin.oluwatobi@gmail.com"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Phtml\\": "src",
+      "Phtml\\Element\\": "elements"
+    }
+  }
+}
