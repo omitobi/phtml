@@ -15,7 +15,8 @@ class Element
      * @var string $element
      */
     protected $element;
-    protected $_text;
+    public $_text;
+    public $inner;
 
 
     function __construct($element = 'body')
@@ -30,7 +31,11 @@ class Element
 
     function __set($name, $value)
     {
-        $this->{$name} = $value;
+        if ($name === 'inner') {
+            $this->inner = new self($value);
+        } else {
+            $this->{$name} = $value;
+        }
     }
 
     function __get($name)
@@ -47,13 +52,13 @@ class Element
         $arrayed = json_decode($jsoned, true);
         $string = "<$this->element ";
         foreach ($arrayed as $item => $value) {
-            if(!in_array($item, ['element', '_text'])) {
+            if(!in_array($item, ['element', '_text', 'inner'])) {
                 $string .= "$item='$value' ";
             }
         }
         $string .= '>';
-        if($this->_text) {
-            $string .= $this->_text;
+        if($this->inner) {
+            $string .= $this->inner;
         }
         $string .= "</$this->element>";
         return $string;

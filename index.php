@@ -13,7 +13,11 @@ use Phtml\Element\Element;
 //
 $element = new Element();
 $element->bgcolor = 'yellow';
+$element->value = "24";
 
-$element->_text = '<h1> It is working </h1>';
-
+$inner = $element->inner = 'h1';
+$inner->value = 'body';
 echo $element;
+echo $inner;
+
+//echo $element;
