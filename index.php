@@ -22,18 +22,31 @@ $h1->_text = 'something';
 $h1->element_ = 'h1';
 echo $h1;
 
+$form = $element->_e_;
+$form->_element = 'form';
+$form->method = 'post';
+$form->class = 'form';
+
+$form->_text = 'Name :';
+
 $input = $element->_e_;
 $input->_element = 'input';
 $input->type = 'text';
 $input->value = 'Something here...';
 $input->placeholder = 'Something here is working...';
-echo $input;
+
+$form->_text .= $input;
 
 
 $input = $element->_e_;
 $input->_element = 'input';
 $input->type = 'button';
 $input->value = 'Submit';
-echo $input;
+
+$form->_text .= $input;
+
+$form->_element = 'form';
+
+echo $form;
 
 //echo $element;
