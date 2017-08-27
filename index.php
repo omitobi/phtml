@@ -9,7 +9,6 @@
 include "vendor/autoload.php";
 include "globals/global.php";
 
-$body = $element->_e_;
 $body->_element = 'body';
 $body->bgcolor = 'yellow';
 

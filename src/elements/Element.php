@@ -48,6 +48,12 @@ class Element
 //            die('something happended');
             return new self();
         }
+
+        if($name === 'element_') {
+            unset($this);
+//            return new self();
+        }
+
         return $this->{$name};
     }
 
