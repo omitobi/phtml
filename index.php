@@ -11,9 +11,6 @@ include "vendor/autoload.php";
 use App\Builder\Impl\Dom;
 use App\Builder\Impl\Element;
 
-$body = new Element('body');
-$body->bgcolor = 'yellow';
-
 $form = new Element('form',[
     'Enter your name',
     new Element('input'),
@@ -40,8 +37,9 @@ $div->width = '900px';
 $div->height = '1000px';
 $div->id = 'Ninja';
 
+$body = new Element('body', [$div]);
+$body->bgcolor = 'yellow';
 
-$body->subElement = $div;
 echo $body;
 
 //echo $element;
