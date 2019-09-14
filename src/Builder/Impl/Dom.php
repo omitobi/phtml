@@ -8,9 +8,15 @@ use App\Builder\Contracts\DomInterface;
 
 class Dom extends AbstractDom implements DomInterface
 {
+    protected $elements = [];
 
-    public function getMe($var = null)
+    protected function initializeBaseElements()
     {
-       return $var;
+       $this->elements = [
+           new Element('html', [
+               new Element('head'),
+               new Element('body'),
+           ]),
+        ];
     }
 }
