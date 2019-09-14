@@ -9,8 +9,10 @@
 include "vendor/autoload.php";
 
 use App\Builder\Impl\Dom;
+use App\Builder\Impl\Element;
 
-$form = new Dom();
+
+$form = new Element();
 
 echo $form->getMe('ninja');
 

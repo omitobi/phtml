@@ -1,12 +1,16 @@
 <?php
 
-namespace \App\Builder;
+namespace App\Builder\Impl;
 
-class Element extends AbstractDom implements DomInterface
+use App\Builder\Contracts\ElementInterface;
+use App\Builder\Abstracts\AbstractElement;
+
+
+class Element extends AbstractElement implements ElementInterface
 {
-    
-    public function __construct()
+
+    public function getMe($var)
     {
-        
+        return $var;
     }
 }
