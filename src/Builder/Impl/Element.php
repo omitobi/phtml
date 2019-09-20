@@ -12,12 +12,14 @@ class Element extends AbstractElement implements ElementInterface
     protected $element_name;
     protected $sub_elements = [];
     protected $properties = [];
+    protected $is_collapsible = [];
 
 
-    public function __construct(string $element_name, array $sub_elements = [])
+    public function __construct(string $element_name, array $sub_elements = [], $is_collapsible = true)
     {
         $this->element_name = $element_name;
         $this->sub_elements = $sub_elements;
+        $this->is_collapsible = $is_collapsible;
 
         $this->scaffold();
     }
@@ -52,22 +54,30 @@ class Element extends AbstractElement implements ElementInterface
 
     public function toHtml()
     {
-        return $this->makePreTag().
-            $this->makeSubElements().
-            $this->makePostTag();
+        $html = $this->makeOpeningTag();
+
+        if ($this->is_collapsible) {
+            $html .= "> \n"
+                .$this->makeSubElements()
+                ." \n"
+                .$this->makeClosingTag();
+        } else {
+            $html .= '/>';
+            //sub-elements are discarded for this tag
+        }
+        
+        return $html;
     }
 
-    protected function makePreTag()
+    protected function makeOpeningTag()
     {
-        $string = "<$this->element_name ";
+        $string = "<$this->element_name";
 
         foreach ($this->properties as $item => $value) {
             if(! in_array($item, ['element', 'sub_elements', 'element_name'])) {
-                $string .= "$item='$value' ";
+                $string .= " $item='$value'";
             }
         }
-
-        $string .= '>';
 
         return $string;
     }
@@ -82,7 +92,7 @@ class Element extends AbstractElement implements ElementInterface
         return $string;
     }
 
-    protected function makePostTag()
+    protected function makeClosingTag()
     {
         return ('</'.($this->element_name).'>');
     }
