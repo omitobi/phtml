@@ -12,6 +12,7 @@ use App\Builder\Impl\Dom;
 use App\Builder\Impl\Element;
 use App\Builder\Impl\Elements\Html;
 use App\Builder\Impl\Elements\Head;
+use App\Builder\Impl\Elements\Title;
 use App\Builder\Impl\Elements\Body;
 
 $form = new Element('form',[
@@ -46,7 +47,7 @@ $body->bgcolor = 'yellow';
 // echo $body;
 echo new Html([
     new Head([
-        new Element('title', ['my first title'])
+        new Title(['my first title'])
     ]),
     new Body(['sdsds'])
 ]);
