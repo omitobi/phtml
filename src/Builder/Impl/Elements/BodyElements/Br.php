@@ -10,20 +10,15 @@ use App\Builder\Impl\Element;
 class Br extends Element
 {
 
-    public function __construct(array $sub_elements)
+    public function __construct()
     {
         $this->makeNonCollapsible();
-        parent::__construct('br', $sub_elements);
+        parent::__construct('br');
     }
 
     protected function scaffold()
     {
         $this->__set('href', '#');
-    }
-
-    protected function makeNonCollapsible()
-    {
-        $this->is_collapsible = false;
     }
 
 }

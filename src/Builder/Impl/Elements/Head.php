@@ -10,7 +10,7 @@ use App\Builder\Impl\Element;
 class Head extends Element
 {
 
-    public function __construct(array $sub_elements)
+    public function __construct(array $sub_elements = [])
     {
         $this->scaffold();
 

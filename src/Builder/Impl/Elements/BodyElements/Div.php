@@ -10,7 +10,7 @@ use App\Builder\Impl\Element;
 class Div extends Element
 {
 
-    public function __construct(array $sub_elements)
+    public function __construct(array $sub_elements = [])
     {
         parent::__construct('div', $sub_elements);
     }

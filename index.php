@@ -20,11 +20,15 @@ use App\Builder\Impl\Elements\BodyElements\Span;
 use App\Builder\Impl\Elements\BodyElements\Form;
 use App\Builder\Impl\Elements\BodyElements\A;
 
+use App\Builder\Impl\Elements\FormElements\Input;
+use App\Builder\Impl\Elements\FormElements\Button;
+use App\Builder\Impl\Elements\FormElements\Label;
+
 
 $form = new Form([
-    'Enter your name',
-    new Element('input'),
-    new Element('button', ['Submit']),
+    new Label(['Enter your name']),
+    new Input(),
+    new Button(),
 ]);
 
 
