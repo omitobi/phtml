@@ -19,4 +19,15 @@ class Dom extends AbstractDom implements DomInterface
            ]),
         ];
     }
+
+    public function __toString()
+    {
+        $html = '';
+        
+        foreach($this->elements as $element) {
+            $html .= $element;
+        }
+
+        return $html;
+    }
 }

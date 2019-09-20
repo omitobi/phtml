@@ -10,6 +10,9 @@ include "vendor/autoload.php";
 
 use App\Builder\Impl\Dom;
 use App\Builder\Impl\Element;
+use App\Builder\Impl\Elements\Html;
+use App\Builder\Impl\Elements\Head;
+use App\Builder\Impl\Elements\Body;
 
 $form = new Element('form',[
     'Enter your name',
@@ -40,6 +43,12 @@ $div->id = 'Ninja';
 $body = new Element('body', [$div]);
 $body->bgcolor = 'yellow';
 
-echo $body;
+// echo $body;
+echo new Html([
+    new Head([
+        new Element('title', ['my first title'])
+    ]),
+    new Body(['sdsds'])
+]);
 
 //echo $element;
