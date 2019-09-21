@@ -72,7 +72,7 @@ class Boot
                 $this->elements[$method_name] = new $element_class(...$parameters);
             }
             
-            return json_encode([$this->elements[$method_name], $method_name, strstr($method, 'set'), $method, $parameters]);
+            // return json_encode([$this->elements[$method_name], $method_name, strstr($method, 'set'), $method, $parameters]);
         }
     }
 }

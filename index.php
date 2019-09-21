@@ -64,8 +64,20 @@ new Html([
 
 $boot = (new Boot);
 $boot->access(function ($boot){
-    $boot->setBody(['aaa']);
-    $boot->setForm([new Input(), 'aaa']);
+    $boot->setHtml([
+        
+        $boot->setBody([
+        
+            $boot->setForm([
+                new Label(['Label 1']),
+                new Input(),
+                new Label(['Label 2']),
+                new Input(),
+                'aaa'
+            ])
+
+        ])
+    ]);
 });
 
 echo $boot;
