@@ -10,6 +10,7 @@ include "vendor/autoload.php";
 
 use App\Builder\Impl\Dom;
 use App\Builder\Impl\Element;
+use App\Builder\Impl\Boot;
 use App\Builder\Impl\Elements\Html;
 use App\Builder\Impl\Elements\Head;
 use App\Builder\Impl\Elements\Title;
@@ -54,11 +55,19 @@ $body = new Body([$div]);
 $body->bgcolor = 'yellow';
 
 // echo $body;
-echo new Html([
+new Html([
     new Head([
         new Title(['my first title'])
     ]),
     $body
 ]);
+
+$boot = (new Boot);
+$boot->access(function ($boot){
+    $boot->setBody(['aaa']);
+    $boot->setForm([new Input(), 'aaa']);
+});
+
+echo $boot;
 
 //echo $element;
