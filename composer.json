@@ -16,8 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Phtml\\": "src",
-      "Phtml\\Element\\": "elements"
+      "App\\": "src"
     }
   }
 }
